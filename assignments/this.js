@@ -27,18 +27,26 @@ const House = {
 // code example for Implicit Binding
 
 // Principle 3
-function City(inhabitantcount, country, mayor){
+function City(name, inhabitantcount, country, mayor){
+    this.name = name;
     this.inhabitantcount = inhabitantcount;
     this.country = country;
     this.mayor = mayor;
 
-    newMayor = function(newMayor){
+    let newMayor = function(newMayor){
         mayor = newMayor;
-        console.log(`The new mayor is ${this}`)
+        console.log(`The new mayor of ${this.name} is ${newMayor}`)
     }
 }
 // code example for New Binding
 
 // Principle 4
-City.newMayor.call("Inaki");
+let london ={
+    name: "london",
+    inhabitantcount: "many",
+    country: "UK",
+    mayor: "currently abandoned"
+}
+
+City.newMayor.call(london, "Inaki");
 // code example for Explicit Binding
